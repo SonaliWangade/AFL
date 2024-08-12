@@ -1,0 +1,59 @@
+<core:FragmentDefinition
+	xmlns="sap.ui.comp.valuehelpdialog"
+	xmlns:m="sap.m"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc">
+	<ValueHelpDialog
+		title="Product"
+		ok=".onWhitespaceOkPress"
+		cancel=".onWhitespaceCancelPress"
+		afterClose=".onWhitespaceAfterClose"
+		supportRanges="true"
+		key="CustomerID"
+		descriptionKey="CompanyName">
+		<filterBar>
+			<fb:FilterBar search=".onFilterBarWhitespacesSearch" isRunningInValueHelpDialog="true">
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem
+						groupName="__$INTERNAL$"
+						name="ProductCode"
+						label="Product Code"
+						visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="ProductCode"
+							showSuggestion="true"
+							showValueHelp="false"
+							suggestionItems="{
+							   path: '/Customers',
+							   sorter: { path: 'CustomerID' }
+						    }">
+								<core:Item key="{CustomerID}" text="{
+									path: 'CustomerID'
+								}"/>
+				  			</m:Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem
+						groupName="__$INTERNAL$"
+						name="ProductName"
+						label="Product Name"
+						visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="ProductName"
+								showSuggestion="true"
+								showValueHelp="false"
+								suggestionItems="{
+								path: '/Customers',
+								sorter: { path: 'CompanyName' }
+							}">
+								<core:Item key="{CompanyName}" text="{CompanyName}"/>
+							</m:Input>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>
+			</fb:FilterBar>
+		</filterBar>
+	</ValueHelpDialog>
+</core:FragmentDefinition>

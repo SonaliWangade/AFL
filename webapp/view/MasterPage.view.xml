@@ -1,0 +1,20 @@
+<mvc:View controllerName="com.ibspl.valuehelp.controller.MasterPage" xmlns:smartList="sap.ui.comp.smartlist"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+        <Button text="Value Help" press="onValueHelp"></Button>
+        <smartList:SmartList id="ItemsST" entitySet="Customers" header="Customers List"
+				showRowCount="true" showFullScreenButton="true" enableAutoBinding="true"
+				selectFields="CustomerID">
+                 <Toolbar >
+                 <Button text="sad   "></Button>
+                 </Toolbar>
+                
+				<smartList:listItemTemplate>
+					<InputListItem label="{CompanyName}"/>
+				</smartList:listItemTemplate>
+			</smartList:SmartList>
+        </content>
+    </Page>
+</mvc:View>
